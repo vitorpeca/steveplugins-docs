@@ -1,3 +1,5 @@
+- [🏠 Início](/)
+
 - **SteveLands**
   - [Português](stevelands-pt.md)
   - [English](stevelands-en.md)

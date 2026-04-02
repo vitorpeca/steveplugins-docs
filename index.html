@@ -15,11 +15,15 @@
   <script>
     window.$docsify = {
       name: 'StevePlugins Docs',
-      repo: 'https://github.com/vitorpeca/steveplugins-docs',
       loadSidebar: true,
       subMaxLevel: 3,
-      search: 'auto',
-      auto2top: true
+      search: {
+        placeholder: 'Buscar na documentação...',
+        noData: 'Nenhum resultado encontrado',
+        depth: 3
+      },
+      auto2top: true,
+      notFoundPage: true
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
