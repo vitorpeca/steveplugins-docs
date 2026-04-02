@@ -1,0 +1,632 @@
+/* ============================================
+   StevePlugins Documentation Theme
+   Custom CSS overriding Docsify theme-simple-dark
+   ============================================ */
+
+/* ----------------------------------------
+   1. Design Tokens (CSS Custom Properties)
+   Replicates design-tokens.scss from landing page
+   ---------------------------------------- */
+:root {
+  /* Primary Colors */
+  --sp-purple: #8B5CF6;
+  --sp-purple-light: #A78BFA;
+  --sp-purple-dark: #7C3AED;
+  --sp-green: #10B981;
+  --sp-green-light: #34D399;
+  --sp-green-dark: #059669;
+
+  /* Background Colors */
+  --sp-bg-primary: #000000;
+  --sp-bg-sidebar: #111827;
+  --sp-bg-card: rgba(40, 40, 40, 0.9);
+  --sp-bg-code: #1a1a2e;
+
+  /* Text Colors */
+  --sp-text-primary: #FFFFFF;
+  --sp-text-secondary: #E5E7EB;
+  --sp-text-muted: #b0b8c4;
+
+  /* Borders & Effects */
+  --sp-border: rgba(255, 255, 255, 0.13);
+  --sp-border-card: rgba(60, 60, 60, 0.3);
+  --sp-glow-purple: rgba(139, 92, 246, 0.3);
+
+  /* Typography */
+  --sp-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sp-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Transitions */
+  --sp-transition: 0.3s ease-in-out;
+
+  /* Border Radius */
+  --sp-radius: 0.75rem;
+  --sp-radius-sm: 0.5rem;
+}
+
+/* ----------------------------------------
+   2. Base / Body Styles
+   Black background with decorative gradients,
+   Inter font, primary/secondary text colors
+   ---------------------------------------- */
+
+/* Fallbacks for browsers without custom property support */
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--sp-bg-primary);
+  color: var(--sp-text-primary);
+  font-family: var(--sp-font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fallback for #app without custom properties */
+#app {
+  background-color: #000000;
+}
+
+#app {
+  background-color: var(--sp-bg-primary);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Fallback for .markdown-section without custom properties */
+.markdown-section {
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.markdown-section {
+  color: var(--sp-text-primary);
+  font-family: var(--sp-font-sans);
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+.markdown-section p,
+.markdown-section li {
+  color: #E5E7EB;
+}
+
+.markdown-section p,
+.markdown-section li {
+  color: var(--sp-text-secondary);
+  line-height: 1.8;
+}
+
+/* ----------------------------------------
+   3. Sidebar Styles
+   Dark background, hover/active links,
+   gradient text title (.app-name)
+   Req: 2.1, 2.2, 2.3, 2.4
+   ---------------------------------------- */
+
+/* Fallback for .sidebar without custom properties */
+.sidebar {
+  background-color: #111827;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.sidebar {
+  background-color: var(--sp-bg-sidebar);
+  border-right: 1px solid var(--sp-border);
+}
+
+/* Sidebar navigation links — hover state */
+/* Fallback */
+.sidebar-nav a {
+  color: #E5E7EB;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.sidebar-nav a {
+  color: var(--sp-text-secondary);
+  text-decoration: none;
+  transition: color var(--sp-transition), border-color var(--sp-transition);
+}
+
+/* Fallback */
+.sidebar-nav a:hover {
+  color: #8B5CF6;
+}
+
+.sidebar-nav a:hover {
+  color: var(--sp-purple);
+}
+
+/* Active link — purple color with left border indicator */
+/* Fallback */
+.sidebar-nav li.active > a {
+  color: #8B5CF6;
+  border-left: 3px solid #8B5CF6;
+}
+
+.sidebar-nav li.active > a {
+  color: var(--sp-purple);
+  border-left: 3px solid var(--sp-purple);
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+/* App name — gradient text (purple-to-green) */
+/* Fallback: solid purple for browsers without background-clip support */
+.app-name {
+  color: #8B5CF6;
+}
+
+.app-name {
+  background: linear-gradient(135deg, var(--sp-purple-light), var(--sp-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-family: var(--sp-font-sans);
+}
+
+/* ----------------------------------------
+   4. Search Bar Styles
+   Dark input, purple focus glow,
+   styled search results
+   Req: 6.1, 6.2, 6.3
+   ---------------------------------------- */
+
+/* Search input — dark background, subtle border, rounded */
+/* Fallback */
+.search input {
+  background-color: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+}
+
+.search input {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-sm);
+  color: var(--sp-text-primary);
+  font-family: var(--sp-font-sans);
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--sp-transition), box-shadow var(--sp-transition);
+  outline: none;
+}
+
+/* Search input focus — purple border with glow */
+/* Fallback */
+.search input:focus {
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+.search input:focus {
+  border-color: var(--sp-purple);
+  box-shadow: 0 0 0 3px var(--sp-glow-purple);
+}
+
+/* Search results — dark background, hover with purple highlight */
+/* Fallback */
+.matching-post {
+  background-color: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.matching-post {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-card);
+  border-radius: var(--sp-radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  transition: border-color var(--sp-transition), background-color var(--sp-transition);
+}
+
+/* Fallback */
+.matching-post:hover {
+  border-color: #8B5CF6;
+  background-color: rgba(139, 92, 246, 0.08);
+}
+
+.matching-post:hover {
+  border-color: var(--sp-purple);
+  background-color: rgba(139, 92, 246, 0.08);
+}
+
+/* ----------------------------------------
+   5. Typography Styles
+   H1/H2 gradient text, H3-H6 white
+   Req: 3.1
+   ---------------------------------------- */
+
+/* Fallback: solid purple for browsers without background-clip support */
+.markdown-section h1,
+.markdown-section h2 {
+  color: #A78BFA;
+}
+
+.markdown-section h1,
+.markdown-section h2 {
+  background: linear-gradient(135deg, #A78BFA, #10B981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--sp-font-sans);
+  font-weight: 700;
+}
+
+/* H3-H6: white text */
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: #FFFFFF;
+}
+
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: var(--sp-text-primary);
+  font-family: var(--sp-font-sans);
+  font-weight: 600;
+}
+
+/* ----------------------------------------
+   6. Table Styles
+   Semi-transparent background, subtle borders,
+   purple header
+   Req: 3.2
+   ---------------------------------------- */
+
+/* Fallback */
+.markdown-section table {
+  background-color: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  border-radius: 0.75rem;
+}
+
+.markdown-section table {
+  background-color: var(--sp-bg-card);
+  border: 1px solid var(--sp-border-card);
+  border-radius: var(--sp-radius);
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Table header — purple semi-transparent background */
+/* Fallback */
+.markdown-section th {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(60, 60, 60, 0.3);
+}
+
+.markdown-section th {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: var(--sp-text-primary);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--sp-border-card);
+}
+
+/* Table cells — subtle bottom border */
+/* Fallback */
+.markdown-section td {
+  border-bottom: 1px solid rgba(60, 60, 60, 0.3);
+  color: #E5E7EB;
+}
+
+.markdown-section td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--sp-border-card);
+  color: var(--sp-text-secondary);
+}
+
+/* ----------------------------------------
+   7. Code Block Styles
+   Dark background, subtle border,
+   JetBrains Mono font
+   Req: 3.3
+   ---------------------------------------- */
+
+/* Code blocks (pre) — dark background, rounded corners */
+/* Fallback */
+.markdown-section pre {
+  background-color: #1a1a2e;
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  border-radius: 0.75rem;
+}
+
+.markdown-section pre {
+  background-color: var(--sp-bg-code);
+  border: 1px solid var(--sp-border-card);
+  border-radius: var(--sp-radius);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+/* Code font — JetBrains Mono for both block and inline */
+/* Fallback */
+.markdown-section code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+.markdown-section code {
+  font-family: var(--sp-font-mono);
+  font-size: 0.9em;
+}
+
+/* Inline code — subtle background, rounded */
+/* Fallback */
+.markdown-section :not(pre) > code {
+  background-color: rgba(139, 92, 246, 0.12);
+  border-radius: 0.25rem;
+  color: #A78BFA;
+}
+
+.markdown-section :not(pre) > code {
+  background-color: rgba(139, 92, 246, 0.12);
+  color: var(--sp-purple-light);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+}
+
+/* ----------------------------------------
+   8. Link Styles
+   Green color, hover green-light, smooth transition
+   Scoped to .markdown-section to avoid sidebar override
+   Req: 3.4
+   ---------------------------------------- */
+
+/* Fallback */
+.markdown-section a {
+  color: #10B981;
+  transition: color 0.3s ease-in-out;
+}
+
+.markdown-section a {
+  color: var(--sp-green);
+  text-decoration: none;
+  transition: color var(--sp-transition);
+}
+
+/* Fallback */
+.markdown-section a:hover {
+  color: #34D399;
+}
+
+.markdown-section a:hover {
+  color: var(--sp-green-light);
+  text-decoration: underline;
+}
+
+/* ----------------------------------------
+   9. List Styles
+   Custom green markers
+   Scoped to .markdown-section to avoid sidebar override
+   Req: 3.5
+   ---------------------------------------- */
+
+.markdown-section ul {
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+/* Fallback */
+.markdown-section ul li::before {
+  color: #10B981;
+}
+
+.markdown-section ul li::before {
+  content: "▸";
+  color: var(--sp-green);
+  font-weight: 700;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  margin-right: 0.5em;
+}
+
+/* ----------------------------------------
+   10. Cards Glassmorphism
+   Plugin cards and hero section with
+   glass effect, hover animations, accent bar
+   Req: 4.1, 4.2, 4.3, 8.1, 8.2, 8.3
+   ---------------------------------------- */
+
+/* Plugin Card — glassmorphism base */
+/* Fallback */
+.plugin-card {
+  background: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  border-radius: 0.75rem;
+}
+
+.plugin-card {
+  background: var(--sp-bg-card);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--sp-border-card);
+  border-radius: var(--sp-radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--sp-transition), box-shadow var(--sp-transition), border-color var(--sp-transition);
+}
+
+/* Plugin Card — hover state */
+/* Fallback */
+.plugin-card:hover {
+  border-color: #A78BFA;
+}
+
+.plugin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--sp-glow-purple);
+  border-color: var(--sp-purple-light);
+}
+
+/* Plugin Card — Accent Bar (::before pseudo-element) */
+.plugin-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sp-green), var(--sp-green-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.plugin-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Hero Section — glassmorphism styling */
+/* Fallback */
+.hero-section {
+  background: rgba(40, 40, 40, 0.9);
+  border: 1px solid rgba(60, 60, 60, 0.3);
+  border-radius: 0.75rem;
+}
+
+.hero-section {
+  background: var(--sp-bg-card);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--sp-border-card);
+  border-radius: var(--sp-radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Hero Section — gradient title */
+.hero-section h1 {
+  background: linear-gradient(135deg, var(--sp-purple-light), var(--sp-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--sp-font-sans);
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Primary Button — gradient purple */
+/* Fallback */
+.btn-steve-primary {
+  background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+}
+
+.btn-steve-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--sp-purple), var(--sp-purple-dark));
+  color: var(--sp-text-primary);
+  padding: 0.75rem 2rem;
+  border-radius: var(--sp-radius-sm);
+  font-family: var(--sp-font-sans);
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter var(--sp-transition), box-shadow var(--sp-transition);
+}
+
+/* Fallback */
+.btn-steve-primary:hover {
+  color: #FFFFFF;
+}
+
+.btn-steve-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 8px 25px var(--sp-glow-purple);
+  color: var(--sp-text-primary);
+  text-decoration: none;
+}
+
+/* ----------------------------------------
+   11. Responsive Styles
+   Media queries for mobile (≤768px):
+   title sizing with clamp(), table scroll,
+   code scroll, sidebar toggle, single-column
+   cards, reduced hero padding
+   Req: 5.1, 5.2, 5.3, 5.4
+   ---------------------------------------- */
+
+@media (max-width: 768px) {
+
+  /* Title sizing — fixed fallback then clamp() for progressive enhancement */
+  .markdown-section h1 {
+    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .markdown-section h2 {
+    font-size: 1.35rem;
+    font-size: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .markdown-section h3 {
+    font-size: 1.15rem;
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+  }
+
+  /* Tables — horizontal scroll on small screens */
+  .markdown-section table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Code blocks — horizontal scroll and adequate font size */
+  .markdown-section pre {
+    overflow-x: auto;
+    font-size: 0.85em;
+  }
+
+  .markdown-section code {
+    font-size: 0.85em;
+  }
+
+  /* Sidebar toggle — styled to match theme */
+  .sidebar-toggle {
+    background: var(--sp-bg-sidebar);
+  }
+
+  /* Plugin cards — single column on mobile */
+  .plugin-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .plugin-card {
+    width: 100%;
+  }
+
+  /* Hero section — reduced padding on mobile */
+  .hero-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+}
