@@ -1,41 +1,29 @@
-<div class="hero-section">
-  <div class="hero-badge">📚 Documentação Oficial</div>
-  <h1>StevePlugins</h1>
-  <p class="hero-subtitle">Plugins premium para servidores Minecraft.<br>Escolha um plugin abaixo para começar.</p>
-</div>
+# StevePlugins
 
-<div class="cards-grid">
+Documentação oficial dos plugins StevePlugins para servidores Minecraft.
 
-<a href="#/stevelands-pt" class="plugin-card">
-  <div class="card-icon">🏠</div>
-  <div class="card-content">
-    <h3>SteveLands</h3>
-    <p>Sistema completo de terrenos, proteção e gestão de claims para seu servidor.</p>
-    <div class="card-links">
-      <span class="lang-tag">PT</span>
-      <span class="lang-tag">EN</span>
-    </div>
-  </div>
-  <div class="card-arrow">→</div>
-</a>
+Selecione um plugin no menu lateral para ver o guia completo.
 
-<a href="#/flyingCarpet-pt" class="plugin-card">
-  <div class="card-icon">🪄</div>
-  <div class="card-content">
-    <h3>FlyingCarpet</h3>
-    <p>Tapetes voadores mágicos para seus jogadores explorarem o mundo com estilo.</p>
-    <div class="card-links">
-      <span class="lang-tag">PT</span>
-      <span class="lang-tag">EN</span>
-    </div>
-  </div>
-  <div class="card-arrow">→</div>
-</a>
+---
 
-</div>
+## Plugins disponíveis
 
-<div class="quick-links">
-  <a href="https://steveplugins.com" class="btn-steve-primary" target="_blank" rel="noopener">
-    Visite steveplugins.com
-  </a>
-</div>
+### 🏠 SteveLands
+
+Sistema completo de terrenos e proteção para servidores Minecraft.
+
+- [📖 Português](stevelands-pt.md)
+- [📖 English](stevelands-en.md)
+
+### 🪄 FlyingCarpet
+
+Tapetes voadores mágicos para seus jogadores.
+
+- [📖 Português](flyingCarpet-pt.md)
+- [📖 English](flyingCarpet-en.md)
+
+---
+
+## Links
+
+- [steveplugins.com](https://steveplugins.com) — Site principal
