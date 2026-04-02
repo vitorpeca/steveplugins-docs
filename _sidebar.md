@@ -1,9 +1,9 @@
-- [Início](/)
+- [🏠 Início](/)
 
-- **SteveLands**
+- **🏠 SteveLands**
   - [Português](stevelands-pt.md)
   - [English](stevelands-en.md)
 
-- **FlyingCarpet**
+- **🪄 FlyingCarpet**
   - [Português](flyingCarpet-pt.md)
   - [English](flyingCarpet-en.md)

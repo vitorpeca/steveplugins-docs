@@ -1,29 +1,32 @@
 # StevePlugins
 
-Documentação oficial dos plugins StevePlugins para servidores Minecraft.
+<img src="logo.png" alt="StevePlugins Logo" style="width: 120px; margin-bottom: 1rem;">
 
-Selecione um plugin no menu lateral para ver o guia completo.
+⚡ Plugins para servidores Minecraft, focados em praticidade e qualidade para administradores.
 
----
+### Download
 
-## Plugins disponíveis
+[⬇️ Clique aqui para comprar](https://steveplugins.com) (fonte: [steveplugins.com](https://steveplugins.com))
 
-### 🏠 SteveLands
+### Plugins
 
-Sistema completo de terrenos e proteção para servidores Minecraft.
+- 🏠 **[SteveLands](stevelands-pt.md)** — Sistema completo de terrenos protegidos com baús, casas starter e schemas customizados.
+- 🪄 **[FlyingCarpet](flyingCarpet-pt.md)** — Tapetes voadores mágicos para seus jogadores explorarem o mundo.
 
-- [📖 Português](stevelands-pt.md)
-- [📖 English](stevelands-en.md)
+### Características
 
-### 🪄 FlyingCarpet
+- � **Multiplataforma** — Paper, Spigot, Folia e Mohist
+- 🌐 **Bilíngue** — Português e Inglês inclusos
+- 🔑 **Licenciamento seguro** — Chave de licença por servidor
+- ⚙️ **Configurável** — Tudo editável via config.yml e mensagens customizáveis
+- � **Entrega instantânea** — Após a compra, baixe e instale imediatamente
 
-Tapetes voadores mágicos para seus jogadores.
+### Requisitos
 
-- [📖 Português](flyingCarpet-pt.md)
-- [📖 English](flyingCarpet-en.md)
+- Minecraft Java 1.20+
+- Paper, Spigot, Folia ou Mohist
+- Chave de licença válida
 
----
+### Comunidade
 
-## Links
-
-- [steveplugins.com](https://steveplugins.com) — Site principal
+- [steveplugins.com](https://steveplugins.com) — Site principal e loja
