@@ -11,30 +11,110 @@
   --sp-green: #10B981;
   --sp-green-light: #34D399;
   --sp-green-dark: #059669;
-
   --sp-bg-primary: #000000;
-  --sp-bg-sidebar: #111827;
-  --sp-bg-card: rgba(40, 40, 40, 0.9);
+  --sp-bg-sidebar: #0f172a;
+  --sp-bg-card: rgba(30, 30, 30, 0.95);
   --sp-bg-code: #1a1a2e;
-
+  --sp-bg-topbar: rgba(15, 23, 42, 0.95);
   --sp-text-primary: #FFFFFF;
   --sp-text-secondary: #E5E7EB;
-  --sp-text-muted: #9CA3AF;
-
+  --sp-text-muted: #94a3b8;
   --sp-border: rgba(255, 255, 255, 0.08);
   --sp-border-card: rgba(60, 60, 60, 0.3);
   --sp-glow-purple: rgba(139, 92, 246, 0.25);
-
   --sp-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --sp-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-
   --sp-transition: 0.3s ease;
   --sp-radius: 0.75rem;
   --sp-radius-sm: 0.5rem;
   --sp-radius-lg: 1rem;
+  --sp-topbar-height: 56px;
 }
 
-/* --- 2. Base Styles --- */
+/* --- 2. Top Navbar (matching landing page) --- */
+.sp-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--sp-topbar-height);
+  background: var(--sp-bg-topbar);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.sp-topbar-inner {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-topbar-logo {
+  font-family: var(--sp-font-sans);
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--sp-purple-light), var(--sp-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform var(--sp-transition);
+  flex-shrink: 0;
+}
+
+.sp-topbar-logo:hover {
+  transform: scale(1.03);
+}
+
+.sp-topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sp-topbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--sp-text-muted);
+  text-decoration: none;
+  font-family: var(--sp-font-sans);
+  font-weight: 500;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  transition: all var(--sp-transition);
+}
+
+.sp-topbar-link:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sp-topbar-link.active {
+  color: #f1f5f9;
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.sp-topbar-link svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.sp-topbar-link:hover svg,
+.sp-topbar-link.active svg {
+  opacity: 1;
+}
+
+/* --- 3. Base / Body --- */
 body {
   background-color: #000000;
   background-color: var(--sp-bg-primary);
@@ -44,6 +124,7 @@ body {
   font-family: var(--sp-font-sans);
   margin: 0;
   padding: 0;
+  padding-top: var(--sp-topbar-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,71 +132,53 @@ body {
 #app {
   background-color: var(--sp-bg-primary);
   background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
   background-attachment: fixed;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--sp-topbar-height));
 }
 
-/* --- 3. Content Area --- */
-.markdown-section {
-  color: var(--sp-text-primary);
-  font-family: var(--sp-font-sans);
-  line-height: 1.75;
-  max-width: 860px;
-  padding: 2rem 2.5rem 4rem;
+/* Push Docsify sidebar down below topbar */
+.sidebar {
+  top: var(--sp-topbar-height);
+  height: calc(100vh - var(--sp-topbar-height));
+  background-color: var(--sp-bg-sidebar);
+  border-right: 1px solid var(--sp-border);
+  padding-top: 1rem;
 }
 
-.markdown-section p,
-.markdown-section li {
-  color: var(--sp-text-secondary);
-  line-height: 1.85;
-  font-size: 0.95rem;
+/* Push content area down */
+section.content {
+  padding-top: var(--sp-topbar-height);
 }
 
 /* --- 4. Sidebar --- */
-.sidebar {
-  background-color: var(--sp-bg-sidebar);
-  border-right: 1px solid var(--sp-border);
-  padding-top: 1.5rem;
-}
-
 .sidebar-nav {
-  padding: 0 0.75rem;
+  padding: 0 0.6rem;
 }
 
 .sidebar-nav a {
-  color: var(--sp-text-secondary);
+  color: var(--sp-text-muted);
   text-decoration: none;
-  transition: color var(--sp-transition), padding-left var(--sp-transition);
-  font-size: 0.9rem;
-  padding: 0.35rem 0.5rem;
-  border-radius: var(--sp-radius-sm);
+  transition: all var(--sp-transition);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
   display: block;
 }
 
 .sidebar-nav a:hover {
-  color: var(--sp-purple-light);
-  background: rgba(139, 92, 246, 0.06);
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .sidebar-nav li.active > a {
-  color: var(--sp-purple);
+  color: #f1f5f9;
   font-weight: 600;
+  background: rgba(139, 92, 246, 0.15);
   border-left: 3px solid var(--sp-purple);
-  padding-left: 0.75rem;
-  background: rgba(139, 92, 246, 0.08);
-}
-
-/* Sidebar section headers (bold items) */
-.sidebar-nav li > p {
-  color: var(--sp-text-muted);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 1.25rem;
-  margin-bottom: 0.25rem;
-  padding-left: 0.5rem;
+  padding-left: 0.85rem;
 }
 
 .app-name {
@@ -125,26 +188,26 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: var(--sp-font-sans);
-  padding: 0 0.75rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 /* --- 5. Search --- */
 .search {
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .search input {
-  background-color: rgba(30, 30, 30, 0.95);
+  background-color: rgba(15, 23, 42, 0.8);
   border: 1px solid var(--sp-border);
-  border-radius: var(--sp-radius-sm);
+  border-radius: 6px;
   color: var(--sp-text-primary);
   font-family: var(--sp-font-sans);
   font-size: 0.85rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   width: 100%;
   box-sizing: border-box;
   transition: border-color var(--sp-transition), box-shadow var(--sp-transition);
@@ -161,20 +224,35 @@ body {
 }
 
 .matching-post {
-  background-color: rgba(30, 30, 30, 0.95);
+  background-color: rgba(15, 23, 42, 0.9);
   border: 1px solid var(--sp-border-card);
-  border-radius: var(--sp-radius-sm);
-  padding: 0.75rem;
-  margin-bottom: 0.35rem;
-  transition: border-color var(--sp-transition), background-color var(--sp-transition);
+  border-radius: 6px;
+  padding: 0.65rem;
+  margin-bottom: 0.3rem;
+  transition: border-color var(--sp-transition);
 }
 
 .matching-post:hover {
   border-color: var(--sp-purple);
-  background-color: rgba(139, 92, 246, 0.06);
 }
 
-/* --- 6. Typography --- */
+/* --- 6. Content Area --- */
+.markdown-section {
+  color: var(--sp-text-primary);
+  font-family: var(--sp-font-sans);
+  line-height: 1.75;
+  max-width: 860px;
+  padding: 2rem 2.5rem 4rem;
+}
+
+.markdown-section p,
+.markdown-section li {
+  color: var(--sp-text-secondary);
+  line-height: 1.85;
+  font-size: 0.95rem;
+}
+
+/* --- 7. Typography --- */
 .markdown-section h1,
 .markdown-section h2 {
   color: #A78BFA;
@@ -212,9 +290,9 @@ body {
 
 .markdown-section h3 { font-size: 1.2rem; }
 
-/* --- 7. Tables --- */
+/* --- 8. Tables --- */
 .markdown-section table {
-  background-color: rgba(20, 20, 20, 0.95);
+  background-color: rgba(15, 23, 42, 0.9);
   border: 1px solid var(--sp-border-card);
   border-radius: var(--sp-radius);
   border-collapse: separate;
@@ -228,17 +306,17 @@ body {
   background-color: rgba(139, 92, 246, 0.1);
   color: var(--sp-text-primary);
   font-weight: 600;
-  font-size: 0.85rem;
-  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  padding: 0.7rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--sp-border-card);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .markdown-section td {
-  padding: 0.65rem 1rem;
-  border-bottom: 1px solid rgba(40, 40, 40, 0.5);
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(40, 40, 40, 0.4);
   color: var(--sp-text-secondary);
   font-size: 0.9rem;
 }
@@ -247,7 +325,7 @@ body {
   border-bottom: none;
 }
 
-/* --- 8. Code --- */
+/* --- 9. Code --- */
 .markdown-section pre {
   background-color: var(--sp-bg-code);
   border: 1px solid var(--sp-border-card);
@@ -270,7 +348,7 @@ body {
   font-size: 0.88em;
 }
 
-/* --- 9. Links --- */
+/* --- 10. Links --- */
 .markdown-section a {
   color: var(--sp-green);
   text-decoration: none;
@@ -283,7 +361,7 @@ body {
   border-bottom-color: var(--sp-green-light);
 }
 
-/* --- 10. Lists --- */
+/* --- 11. Lists --- */
 .markdown-section ul {
   list-style: none;
   padding-left: 1.25em;
@@ -302,13 +380,36 @@ body {
   left: -1.25em;
 }
 
-.markdown-section ol li {
-  color: var(--sp-text-secondary);
+/* --- 12. Blockquotes, HR, Images --- */
+.markdown-section blockquote {
+  border-left: 3px solid var(--sp-purple);
+  background: rgba(139, 92, 246, 0.05);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 var(--sp-radius-sm) var(--sp-radius-sm) 0;
+  margin: 1.5rem 0;
 }
 
-/* --- 11. Hero Section (Homepage) --- */
+.markdown-section blockquote p {
+  color: var(--sp-text-secondary);
+  margin: 0;
+}
+
+.markdown-section hr {
+  border: none;
+  height: 1px;
+  background: var(--sp-border);
+  margin: 2rem 0;
+}
+
+.markdown-section img {
+  border-radius: var(--sp-radius);
+  border: 1px solid var(--sp-border-card);
+  max-width: 100%;
+}
+
+/* --- 13. Hero Section (Homepage) --- */
 .hero-section {
-  background: radial-gradient(ellipse at center, rgba(17, 10, 31, 0.8) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.6) 0%, transparent 70%);
   border: 1px solid var(--sp-border-card);
   border-radius: var(--sp-radius-lg);
   padding: 3.5rem 2rem 3rem;
@@ -330,13 +431,13 @@ body {
 
 .hero-badge {
   display: inline-block;
-  background: rgba(139, 92, 246, 0.12);
+  background: rgba(139, 92, 246, 0.1);
   color: var(--sp-purple-light);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  padding: 0.35rem 1rem;
+  padding: 0.3rem 0.9rem;
   border-radius: 2rem;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.18);
   margin-bottom: 1.25rem;
   letter-spacing: 0.03em;
 }
@@ -362,7 +463,7 @@ body {
   font-weight: 400;
 }
 
-/* --- 12. Plugin Cards (Homepage) --- */
+/* --- 14. Plugin Cards (Homepage) --- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -374,7 +475,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  background: rgba(20, 20, 20, 0.95);
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--sp-border-card);
@@ -403,7 +504,7 @@ body {
 
 .plugin-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px var(--sp-glow-purple);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 20px var(--sp-glow-purple);
   border-color: var(--sp-purple-light);
   text-decoration: none;
   color: inherit;
@@ -414,10 +515,10 @@ body {
 }
 
 .card-icon {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -433,11 +534,10 @@ body {
 
 .card-content h3 {
   color: var(--sp-text-primary);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   font-family: var(--sp-font-sans);
-  /* Override gradient from markdown-section */
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
@@ -446,31 +546,31 @@ body {
 
 .card-content p {
   color: var(--sp-text-muted);
-  font-size: 0.88rem;
-  margin: 0 0 0.65rem;
+  font-size: 0.85rem;
+  margin: 0 0 0.6rem;
   line-height: 1.5;
 }
 
 .card-links {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .lang-tag {
   display: inline-block;
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.08);
   color: var(--sp-green);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  padding: 0.15rem 0.5rem;
+  padding: 0.12rem 0.45rem;
   border-radius: 0.25rem;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.18);
   letter-spacing: 0.04em;
 }
 
 .card-arrow {
   color: var(--sp-text-muted);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
   transition: transform var(--sp-transition), color var(--sp-transition);
 }
@@ -480,7 +580,7 @@ body {
   color: var(--sp-purple-light);
 }
 
-/* --- 13. Quick Links / CTA --- */
+/* --- 15. CTA Button --- */
 .quick-links {
   text-align: center;
   padding: 1.5rem 0 1rem;
@@ -490,42 +590,49 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, var(--sp-purple), var(--sp-purple-dark));
   color: var(--sp-text-primary);
-  padding: 0.7rem 2rem;
-  border-radius: var(--sp-radius-sm);
+  padding: 0.65rem 1.75rem;
+  border-radius: 8px;
   font-family: var(--sp-font-sans);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-decoration: none;
   transition: transform var(--sp-transition), box-shadow var(--sp-transition), filter var(--sp-transition);
   position: relative;
   overflow: hidden;
-}
-
-.btn-steve-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transition: left 0.5s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
 }
 
 .btn-steve-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--sp-glow-purple);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35);
   filter: brightness(1.1);
   color: var(--sp-text-primary);
   text-decoration: none;
 }
 
-.btn-steve-primary:hover::before {
-  left: 100%;
-}
-
-/* --- 14. Responsive --- */
+/* --- 16. Responsive --- */
 @media (max-width: 768px) {
+  :root {
+    --sp-topbar-height: 48px;
+  }
+
+  .sp-topbar-inner {
+    padding: 0 0.75rem;
+  }
+
+  .sp-topbar-logo {
+    font-size: 0.95rem;
+  }
+
+  .sp-topbar-link {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .sp-topbar-link svg {
+    display: none;
+  }
+
   .markdown-section {
     padding: 1.5rem 1rem 3rem;
   }
@@ -540,11 +647,6 @@ body {
     font-size: clamp(1.15rem, 4vw, 1.5rem);
   }
 
-  .markdown-section h3 {
-    font-size: 1.05rem;
-    font-size: clamp(1rem, 3.5vw, 1.2rem);
-  }
-
   .markdown-section table {
     display: block;
     overflow-x: auto;
@@ -555,13 +657,11 @@ body {
     padding: 1rem;
   }
 
-  .markdown-section code {
-    font-size: 0.85em;
-  }
-
   .sidebar-toggle {
+    top: calc(var(--sp-topbar-height) + 4px);
     background: var(--sp-bg-sidebar);
     border: 1px solid var(--sp-border);
+    border-radius: 0 6px 6px 0;
   }
 
   .hero-section {
@@ -574,7 +674,7 @@ body {
   }
 
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .cards-grid {
@@ -589,18 +689,15 @@ body {
   .card-icon {
     width: 48px;
     height: 48px;
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }
 
-/* --- 15. Docsify Overrides --- */
-
-/* Remove any github corner that might leak through */
+/* --- 17. Overrides & Polish --- */
 .github-corner {
   display: none !important;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -611,49 +708,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.25);
+  background: rgba(139, 92, 246, 0.2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.35);
 }
 
-/* Smooth page transitions */
 .markdown-section {
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.25s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* Blockquotes */
-.markdown-section blockquote {
-  border-left: 3px solid var(--sp-purple);
-  background: rgba(139, 92, 246, 0.06);
-  padding: 0.75rem 1.25rem;
-  border-radius: 0 var(--sp-radius-sm) var(--sp-radius-sm) 0;
-  margin: 1.5rem 0;
-}
-
-.markdown-section blockquote p {
-  color: var(--sp-text-secondary);
-  margin: 0;
-}
-
-/* Horizontal rules */
-.markdown-section hr {
-  border: none;
-  height: 1px;
-  background: var(--sp-border);
-  margin: 2rem 0;
-}
-
-/* Images */
-.markdown-section img {
-  border-radius: var(--sp-radius);
-  border: 1px solid var(--sp-border-card);
-  max-width: 100%;
 }
