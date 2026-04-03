@@ -1,6 +1,18 @@
-# FlyingCarpet — Guia do Administrador
+# FlyingCarpet <span class="version-badge">MC 1.20+</span>
 
 Plugin de tapete voador para Minecraft Java Edition por **StevePlugins**.
+
+<div class="lang-switch">
+  <a href="#/flyingCarpet-pt" class="active">🇧🇷 Português</a>
+  <a href="#/flyingCarpet-en">🇺🇸 English</a>
+</div>
+
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">⚡ Folia</span>
+  <span class="platform-tag">🔨 Mohist</span>
+</div>
 
 ---
 
@@ -8,7 +20,7 @@ Plugin de tapete voador para Minecraft Java Edition por **StevePlugins**.
 
 - Minecraft Java 1.20+
 - Paper, Spigot, Folia ou Mohist
-- Chave de licença válida (adquirida em steveplugins.com)
+- Chave de licença válida (adquirida em [steveplugins.com](https://steveplugins.com))
 
 ## Instalação
 
@@ -16,6 +28,9 @@ Plugin de tapete voador para Minecraft Java Edition por **StevePlugins**.
 2. Reinicie o servidor
 3. Edite `plugins/FlyingCarpet/config.yml` e insira sua chave de licença
 4. Rode `/tapete recarregar` ou reinicie o servidor
+
+
+> **💡 Dica:** Após a primeira inicialização, o plugin gera automaticamente os arquivos de configuração e mensagens.
 
 ## Configuração
 
@@ -55,7 +70,8 @@ As mensagens ficam em arquivos editáveis:
 - `plugins/FlyingCarpet/messages_pt.yml`
 - `plugins/FlyingCarpet/messages_en.yml`
 
-Você pode editar qualquer mensagem, cor e placeholder.
+> **💡 Dica:** Você pode editar qualquer mensagem, cor e placeholder. Suporta códigos de cor do Minecraft e hex colors.
+
 
 ## Comandos
 
@@ -82,20 +98,22 @@ Aliases do comando principal: `/carpet`, `/fc`
 
 O tapete voador cria uma plataforma 3x3 de blocos de vidro abaixo do jogador:
 
-- **Pular (espaço)**: o tapete sobe
-- **Agachar (shift)**: o tapete desce
-- **Andar**: o tapete acompanha o jogador horizontalmente
+| Controle | Ação |
+|---|---|
+| **Pular** (espaço) | O tapete sobe |
+| **Agachar** (shift) | O tapete desce |
+| **Andar** | O tapete acompanha horizontalmente |
 
-O tapete respeita construções existentes — blocos sólidos não são substituídos. Ao desativar ou sair do servidor, todos os blocos originais são restaurados automaticamente.
+> **💡 Dica:** O tapete respeita construções existentes — blocos sólidos não são substituídos. Ao desativar ou sair do servidor, todos os blocos originais são restaurados automaticamente.
 
 ## Compatibilidade
 
-O plugin é compatível com as seguintes plataformas de servidor:
-
-- **Paper** (recomendado)
-- **Spigot**
-- **Mohist**
-- **Folia**
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper (recomendado)</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">🔨 Mohist</span>
+  <span class="platform-tag">⚡ Folia</span>
+</div>
 
 Versão mínima: Minecraft 1.20+
 
@@ -103,13 +121,21 @@ Versão mínima: Minecraft 1.20+
 
 O plugin detecta automaticamente os seguintes plugins de proteção, quando instalados:
 
-- **GriefPrevention** — o tapete não coloca blocos em terrenos onde o jogador não tem permissão de construção
-- **WorldGuard** — o tapete respeita regiões protegidas onde o jogador não pode construir
+| Plugin | Comportamento |
+|---|---|
+| **GriefPrevention** | O tapete não coloca blocos em terrenos onde o jogador não tem permissão de construção |
+| **WorldGuard** | O tapete respeita regiões protegidas onde o jogador não pode construir |
 
-Esses plugins são opcionais. O FlyingCarpet funciona normalmente sem eles.
+> **💡 Dica:** Esses plugins são opcionais. O FlyingCarpet funciona normalmente sem eles.
 
 ## Suporte
 
-- Site: steveplugins.com
-- Problemas com licença: verifique a chave no config.yml
-- Erros: consulte o log do servidor em `logs/latest.log`
+- 🌐 Site: [steveplugins.com](https://steveplugins.com)
+- 🔑 Problemas com licença: verifique a chave no `config.yml`
+- 📋 Erros: consulte o log do servidor em `logs/latest.log`
+
+---
+
+<div class="doc-footer">
+  Feito com 💜 por <a href="https://steveplugins.com">StevePlugins</a>
+</div>

@@ -1,6 +1,18 @@
-# SteveLands — Guia do Administrador
+# SteveLands <span class="version-badge">MC 1.20+</span>
 
-Plugin de terrenos protegidos para Minecraft Java Edition por **StevePlugins**.
+Sistema de terrenos protegidos para Minecraft Java Edition por **StevePlugins**.
+
+<div class="lang-switch">
+  <a href="#/stevelands-pt" class="active">🇧🇷 Português</a>
+  <a href="#/stevelands-en">🇺🇸 English</a>
+</div>
+
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">⚡ Folia</span>
+  <span class="platform-tag">🔨 Mohist</span>
+</div>
 
 ---
 
@@ -9,7 +21,7 @@ Plugin de terrenos protegidos para Minecraft Java Edition por **StevePlugins**.
 - Minecraft Java 1.20+
 - Paper, Spigot, Folia ou Mohist
 - GriefPrevention instalado no servidor
-- Chave de licença válida (adquirida em steveplugins.com)
+- Chave de licença válida (adquirida em [steveplugins.com](https://steveplugins.com))
 
 ## Instalação
 
@@ -17,6 +29,8 @@ Plugin de terrenos protegidos para Minecraft Java Edition por **StevePlugins**.
 2. Reinicie o servidor
 3. Edite `plugins/SteveLands/config.yml` e insira sua chave de licença
 4. Rode `/terreno recarregar` ou reinicie o servidor
+
+> **💡 Dica:** Após a primeira inicialização, o plugin gera automaticamente os arquivos de configuração e mensagens.
 
 ## Configuração
 
@@ -66,7 +80,7 @@ As mensagens ficam em arquivos editáveis:
 - `plugins/SteveLands/messages_pt.yml`
 - `plugins/SteveLands/messages_en.yml`
 
-Você pode editar qualquer mensagem, cor e placeholder.
+> **💡 Dica:** Você pode editar qualquer mensagem, cor e placeholder. Suporta códigos de cor do Minecraft e hex colors.
 
 ## Comandos
 
@@ -97,7 +111,7 @@ Aliases do comando principal: `/land`, `/stevelands`, `/sl`
 | `stevelands.admin` | op | Criar/gerenciar schemas |
 | `stevelands.bypass.limit` | ninguém | Ignorar limite de terrenos |
 | `stevelands.bypass.cooldown` | ninguém | Ignorar cooldown |
-| `stevelands.claims.<N>` | ninguém | Define limite customizado (ex: `stevelands.claims.5` = 5 terrenos) |
+| `stevelands.claims.<N>` | ninguém | Limite customizado (ex: `stevelands.claims.5`) |
 
 ### Limites por Permissão (VIP)
 
@@ -105,26 +119,28 @@ Use permissões no formato `stevelands.claims.<número>` pra definir limites dif
 
 | Grupo | Permissão | Limite |
 |---|---|---|
-| Jogador comum | (nenhuma) | Usa o valor do config.yml (padrão: 3) |
+| Jogador comum | *(nenhuma)* | Usa o valor do config.yml (padrão: 3) |
 | VIP | `stevelands.claims.5` | 5 terrenos |
 | VIP+ | `stevelands.claims.10` | 10 terrenos |
 | Admin | `stevelands.bypass.limit` | Ilimitado |
 
-O plugin usa o maior valor de permissão encontrado. Configure no LuckPerms ou plugin de permissões do seu servidor.
+> **💡 Dica:** O plugin usa o maior valor de permissão encontrado. Configure no LuckPerms ou plugin de permissões do seu servidor.
 
 ## Baú de Terreno
 
 O baú de terreno é um item especial que, ao ser colocado no chão:
+
 1. Cria um terreno protegido centrado na posição
 2. Coloca cercas de madeira na borda
 3. Gera uma casa starter (ou schema customizado)
 
 Para dar baús aos jogadores:
-```
+
+```bash
 /terreno dar NomeDoJogador 20 1
 ```
 
-Para integrar com plugins de kits, use o comando acima na configuração do kit.
+> **💡 Dica:** Para integrar com plugins de kits, use o comando acima na configuração do kit.
 
 ## Schemas Customizados
 
@@ -135,12 +151,15 @@ Schemas permitem criar casas personalizadas para cada tamanho de terreno.
 3. Vá para o canto superior oposto: `/terreno schema pos2`
 4. Salve: `/terreno schema salvar casa-vip`
 5. No config.yml, associe ao tamanho:
+
 ```yaml
 chest-schemas:
   10: "casa-pequena"
   20: "casa-media"
   50: "casa-vip"
 ```
+
+> **⚠️ Atenção:** O schema deve caber dentro do tamanho do terreno. Schemas maiores que o terreno serão cortados.
 
 ## Notificações de Entrada
 
@@ -154,6 +173,12 @@ Quando um jogador sai de um terreno:
 
 ## Suporte
 
-- Site: steveplugins.com
-- Problemas com licença: verifique a chave no config.yml
-- Erros: consulte o log do servidor em `logs/latest.log`
+- 🌐 Site: [steveplugins.com](https://steveplugins.com)
+- 🔑 Problemas com licença: verifique a chave no `config.yml`
+- 📋 Erros: consulte o log do servidor em `logs/latest.log`
+
+---
+
+<div class="doc-footer">
+  Feito com 💜 por <a href="https://steveplugins.com">StevePlugins</a>
+</div>

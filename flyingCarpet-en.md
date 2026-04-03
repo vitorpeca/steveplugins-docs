@@ -1,6 +1,18 @@
-# FlyingCarpet — Administrator Guide
+# FlyingCarpet <span class="version-badge">MC 1.20+</span>
 
 Flying carpet plugin for Minecraft Java Edition by **StevePlugins**.
+
+<div class="lang-switch">
+  <a href="#/flyingCarpet-pt">🇧🇷 Português</a>
+  <a href="#/flyingCarpet-en" class="active">🇺🇸 English</a>
+</div>
+
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">⚡ Folia</span>
+  <span class="platform-tag">🔨 Mohist</span>
+</div>
 
 ---
 
@@ -8,7 +20,7 @@ Flying carpet plugin for Minecraft Java Edition by **StevePlugins**.
 
 - Minecraft Java 1.20+
 - Paper, Spigot, Folia, or Mohist
-- Valid license key (purchased at steveplugins.com)
+- Valid license key (purchased at [steveplugins.com](https://steveplugins.com))
 
 ## Installation
 
@@ -16,6 +28,9 @@ Flying carpet plugin for Minecraft Java Edition by **StevePlugins**.
 2. Restart the server
 3. Edit `plugins/FlyingCarpet/config.yml` and enter your license key
 4. Run `/carpet reload` or restart the server
+
+
+> **💡 Tip:** After the first startup, the plugin automatically generates configuration and message files.
 
 ## Configuration
 
@@ -55,7 +70,8 @@ Messages are stored in editable files:
 - `plugins/FlyingCarpet/messages_pt.yml`
 - `plugins/FlyingCarpet/messages_en.yml`
 
-You can customize any message, color, and placeholder.
+> **💡 Tip:** You can customize any message, color, and placeholder. Supports Minecraft color codes and hex colors.
+
 
 ## Commands
 
@@ -82,20 +98,22 @@ Main command aliases: `/tapete`, `/fc`
 
 The flying carpet creates a 3x3 platform of glass blocks below the player:
 
-- **Jump (space)**: the carpet rises
-- **Sneak (shift)**: the carpet descends
-- **Walk**: the carpet follows the player horizontally
+| Control | Action |
+|---|---|
+| **Jump** (space) | The carpet rises |
+| **Sneak** (shift) | The carpet descends |
+| **Walk** | The carpet follows horizontally |
 
-The carpet respects existing builds — solid blocks are never replaced. When deactivating or leaving the server, all original blocks are automatically restored.
+> **💡 Tip:** The carpet respects existing builds — solid blocks are never replaced. When deactivating or leaving the server, all original blocks are automatically restored.
 
 ## Compatibility
 
-The plugin is compatible with the following server platforms:
-
-- **Paper** (recommended)
-- **Spigot**
-- **Mohist**
-- **Folia**
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper (recommended)</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">🔨 Mohist</span>
+  <span class="platform-tag">⚡ Folia</span>
+</div>
 
 Minimum version: Minecraft 1.20+
 
@@ -103,13 +121,21 @@ Minimum version: Minecraft 1.20+
 
 The plugin automatically detects the following protection plugins when installed:
 
-- **GriefPrevention** — the carpet will not place blocks on claims where the player lacks build permission
-- **WorldGuard** — the carpet respects protected regions where the player cannot build
+| Plugin | Behavior |
+|---|---|
+| **GriefPrevention** | The carpet will not place blocks on claims where the player lacks build permission |
+| **WorldGuard** | The carpet respects protected regions where the player cannot build |
 
-These plugins are optional. FlyingCarpet works normally without them.
+> **💡 Tip:** These plugins are optional. FlyingCarpet works normally without them.
 
 ## Support
 
-- Website: steveplugins.com
-- License issues: check your key in config.yml
-- Errors: check the server log at `logs/latest.log`
+- 🌐 Website: [steveplugins.com](https://steveplugins.com)
+- 🔑 License issues: check your key in `config.yml`
+- 📋 Errors: check the server log at `logs/latest.log`
+
+---
+
+<div class="doc-footer">
+  Made with 💜 by <a href="https://steveplugins.com">StevePlugins</a>
+</div>

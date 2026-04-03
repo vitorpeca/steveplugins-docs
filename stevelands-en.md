@@ -1,6 +1,18 @@
-# SteveLands — Administrator Guide
+# SteveLands <span class="version-badge">MC 1.20+</span>
 
 Protected land claim plugin for Minecraft Java Edition by **StevePlugins**.
+
+<div class="lang-switch">
+  <a href="#/stevelands-pt">🇧🇷 Português</a>
+  <a href="#/stevelands-en" class="active">🇺🇸 English</a>
+</div>
+
+<div class="platform-tags">
+  <span class="platform-tag">📄 Paper</span>
+  <span class="platform-tag">🔧 Spigot</span>
+  <span class="platform-tag">⚡ Folia</span>
+  <span class="platform-tag">🔨 Mohist</span>
+</div>
 
 ---
 
@@ -9,7 +21,7 @@ Protected land claim plugin for Minecraft Java Edition by **StevePlugins**.
 - Minecraft Java 1.20+
 - Paper, Spigot, Folia, or Mohist
 - GriefPrevention installed on the server
-- Valid license key (purchased at steveplugins.com)
+- Valid license key (purchased at [steveplugins.com](https://steveplugins.com))
 
 ## Installation
 
@@ -17,6 +29,9 @@ Protected land claim plugin for Minecraft Java Edition by **StevePlugins**.
 2. Restart the server
 3. Edit `plugins/SteveLands/config.yml` and enter your license key
 4. Run `/land reload` or restart the server
+
+
+> **💡 Tip:** After the first startup, the plugin automatically generates configuration and message files.
 
 ## Configuration
 
@@ -66,7 +81,8 @@ Messages are stored in editable files:
 - `plugins/SteveLands/messages_en.yml`
 - `plugins/SteveLands/messages_pt.yml`
 
-You can customize any message, color, and placeholder.
+> **💡 Tip:** You can customize any message, color, and placeholder. Supports Minecraft color codes and hex colors.
+
 
 ## Commands
 
@@ -97,7 +113,7 @@ Main command aliases: `/terreno`, `/stevelands`, `/sl`
 | `stevelands.admin` | op | Create/manage schematics |
 | `stevelands.bypass.limit` | nobody | Bypass claim limit |
 | `stevelands.bypass.cooldown` | nobody | Bypass cooldown |
-| `stevelands.claims.<N>` | nobody | Custom claim limit (e.g. `stevelands.claims.5` = 5 claims) |
+| `stevelands.claims.<N>` | nobody | Custom claim limit (e.g. `stevelands.claims.5`) |
 
 ### Permission-Based Limits (VIP)
 
@@ -105,26 +121,29 @@ Use permissions in the format `stevelands.claims.<number>` to set different limi
 
 | Group | Permission | Limit |
 |---|---|---|
-| Default player | (none) | Uses config.yml value (default: 3) |
+| Default player | *(none)* | Uses config.yml value (default: 3) |
 | VIP | `stevelands.claims.5` | 5 claims |
 | VIP+ | `stevelands.claims.10` | 10 claims |
 | Admin | `stevelands.bypass.limit` | Unlimited |
 
-The plugin uses the highest permission value found. Configure in LuckPerms or your permissions plugin.
+> **💡 Tip:** The plugin uses the highest permission value found. Configure in LuckPerms or your permissions plugin.
+
 
 ## Claim Chest
 
 The claim chest is a special item that, when placed on the ground:
+
 1. Creates a protected land claim centered on the position
 2. Places oak fences around the border
 3. Generates a starter house (or custom schematic)
 
 To give chests to players:
-```
+
+```bash
 /land give PlayerName 20 1
 ```
 
-To integrate with kit plugins, use the command above in your kit configuration.
+> **💡 Tip:** To integrate with kit plugins, use the command above in your kit configuration.
 
 ## Custom Schematics
 
@@ -135,12 +154,15 @@ Schematics let you create custom houses for each land size.
 3. Go to the opposite upper corner: `/land schema pos2`
 4. Save: `/land schema save vip-house`
 5. In config.yml, associate with a size:
+
 ```yaml
 chest-schemas:
   10: "small-house"
   20: "medium-house"
   50: "vip-house"
 ```
+
+> **⚠️ Warning:** The schematic must fit within the land size. Schematics larger than the land will be clipped.
 
 ## Entry Notifications
 
@@ -154,6 +176,12 @@ When a player leaves a claim:
 
 ## Support
 
-- Website: steveplugins.com
-- License issues: check your key in config.yml
-- Errors: check the server log at `logs/latest.log`
+- 🌐 Website: [steveplugins.com](https://steveplugins.com)
+- 🔑 License issues: check your key in `config.yml`
+- 📋 Errors: check the server log at `logs/latest.log`
+
+---
+
+<div class="doc-footer">
+  Made with 💜 by <a href="https://steveplugins.com">StevePlugins</a>
+</div>
