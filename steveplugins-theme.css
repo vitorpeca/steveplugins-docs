@@ -717,9 +717,21 @@ p.warn {
 }
 
 /* --- Responsive --- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .markdown-section {
+    padding: 2rem 2rem 4rem;
+    max-width: 100%;
+  }
+}
+
+/* Mobile landscape / small tablet */
 @media (max-width: 768px) {
   .markdown-section {
     padding: 1.5rem 1.15rem 3rem;
+    max-width: 100%;
+    font-size: 0.92rem;
   }
 
   .markdown-section h1 {
@@ -728,31 +740,311 @@ p.warn {
 
   .markdown-section h2 {
     font-size: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .markdown-section h3 {
+    font-size: 1.05rem;
   }
 
   .markdown-section table {
     display: block;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    font-size: 0.82rem;
   }
 
   .markdown-section pre {
-    font-size: 0.83em;
+    font-size: 0.8em;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+  }
+
+  .markdown-section blockquote {
+    padding: 0.65rem 0.85rem;
+    margin: 1rem 0;
   }
 
   .plugin-cards {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .plugin-card {
+    padding: 1.15rem;
   }
 
   .feature-grid {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .feature-item {
+    padding: 0.85rem 1rem;
   }
 
   .hero-section {
     padding: 1rem 0;
   }
 
+  .hero-tagline {
+    font-size: 0.95rem;
+  }
+
+  .lang-switch {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .steps li {
+    padding-left: 2.2rem;
+  }
+
+  /* Docsify sidebar toggle */
   .sidebar-toggle {
     background: var(--sp-bg-sidebar);
+    padding: 6px 10px;
+  }
+
+  /* Sidebar overlay fix */
+  body.close .sidebar {
+    transform: translateX(-300px);
+  }
+
+  .sidebar {
+    width: 260px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Pagination mobile */
+  .pagination-item {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  /* Docsify search mobile */
+  .search input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .markdown-section {
+    padding: 1rem 0.85rem 2.5rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    word-break: break-word;
+  }
+
+  .markdown-section h1 {
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.12rem;
+    padding-bottom: 0.4rem;
+    margin-top: 1.75rem;
+  }
+
+  .markdown-section h3 {
+    font-size: 1rem;
+  }
+
+  .markdown-section pre {
+    font-size: 0.75em;
+    padding: 0.65rem 0.75rem;
+    margin: 1rem -0.85rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .markdown-section :not(pre) > code {
+    font-size: 0.82em;
+    padding: 0.1em 0.35em;
+    word-break: break-all;
+  }
+
+  .markdown-section table {
+    font-size: 0.78rem;
+    margin: 1rem -0.85rem;
+    width: calc(100% + 1.7rem);
+  }
+
+  .markdown-section th {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.7rem;
+  }
+
+  .markdown-section td {
+    padding: 0.45rem 0.65rem;
+  }
+
+  .markdown-section ul,
+  .markdown-section ol {
+    padding-left: 1.15rem;
+  }
+
+  .markdown-section blockquote {
+    padding: 0.55rem 0.75rem;
+    margin: 0.85rem 0;
+  }
+
+  .plugin-card {
+    padding: 1rem;
+  }
+
+  .plugin-card h3 {
+    font-size: 1rem;
+  }
+
+  .plugin-card p {
+    font-size: 0.84rem;
+  }
+
+  .feature-item {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.84rem;
+  }
+
+  .hero-section img {
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.15em 0.5em;
+  }
+
+  .cta-button {
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .steps li {
+    padding-left: 2rem;
+    font-size: 0.88rem;
+  }
+
+  .steps li::before {
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 0.7rem;
+  }
+
+  .lang-switch a {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .platform-tag {
+    font-size: 0.68rem;
+  }
+
+  .doc-footer {
+    margin-top: 2.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Sidebar small mobile */
+  .sidebar {
+    width: 240px;
+  }
+
+  .app-name {
+    padding: 1rem 0.85rem 0.75rem;
+  }
+
+  .sidebar-nav {
+    font-size: 0.84rem;
+  }
+
+  /* Docsify tabs mobile */
+  .docsify-tabs__tab {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .docsify-tabs__content {
+    padding: 0.75rem 0.85rem;
+  }
+}
+
+/* Extra small mobile (320px) */
+@media (max-width: 360px) {
+  .markdown-section {
+    padding: 0.85rem 0.65rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  .markdown-section h1 {
+    font-size: 1.2rem;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.05rem;
+  }
+
+  .markdown-section pre {
+    font-size: 0.7em;
+    margin: 0.85rem -0.65rem;
+  }
+
+  .plugin-card {
+    padding: 0.85rem;
+  }
+
+  .feature-item {
+    padding: 0.65rem 0.75rem;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-nav a {
+    padding: 0.55rem 0.75rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .cta-button {
+    min-height: 44px;
+  }
+
+  .lang-switch a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .docsify-tabs__tab {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .pagination-item {
+    min-height: 44px;
+  }
+
+  .search input {
+    min-height: 44px;
   }
 }
 
