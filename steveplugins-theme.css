@@ -401,7 +401,7 @@ p.warn {
 }
 
 .hero-section img {
-  width: 80px;
+  width: 100%;
   margin-bottom: 0.5rem;
   filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.3));
 }

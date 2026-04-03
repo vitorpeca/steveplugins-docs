@@ -1,6 +1,5 @@
 <div class="hero-section">
   <img src="logo.png" alt="StevePlugins Logo">
-  <h1>StevePlugins</h1>
   <p class="hero-tagline">Plugins premium para servidores Minecraft, focados em praticidade e qualidade para administradores.</p>
   <a href="https://steveplugins.com" class="cta-button">⬇️ Comprar na Loja</a>
 </div>
