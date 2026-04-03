@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.steveplugins.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

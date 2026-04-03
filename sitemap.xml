@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://docs.steveplugins.com/</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.steveplugins.com/#/stevelands-pt</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.steveplugins.com/#/stevelands-pt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.steveplugins.com/#/stevelands-en" />
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.steveplugins.com/#/stevelands-en</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.steveplugins.com/#/stevelands-pt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.steveplugins.com/#/stevelands-en" />
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.steveplugins.com/#/flyingCarpet-pt</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.steveplugins.com/#/flyingCarpet-pt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.steveplugins.com/#/flyingCarpet-en" />
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.steveplugins.com/#/flyingCarpet-en</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.steveplugins.com/#/flyingCarpet-pt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.steveplugins.com/#/flyingCarpet-en" />
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
